@@ -14,21 +14,21 @@ describe("CountdownForm", () => {
 	describe("onStartAction", () => {
 	it("should get called when passed valid seconds", ()=>{
 		var spy = expect.createSpy();
-		var action = {onStartAction: spy}
+		var action = {onStartAction: spy, startEnabled: true, stopEnabled: false}
 		var countdownForm = TestUtils.renderIntoDocument(<CountdownForm action={action}/>);
 		var el = $(ReactDom.findDOMNode(countdownForm));
 		countdownForm.refs.secondsInput.value = "615";
-		TestUtils.Simulate.click(el.find('a.btn')[0]);
+		TestUtils.Simulate.click(el.find('button.btn')[0]);
 		expect(spy).toHaveBeenCalledWith(615);
 	});
 
 	it("should not get called when passed invalid seconds", ()=>{
 		var spy = expect.createSpy();
-		var action = {onStartAction: spy}
+		var action = {onStartAction: spy, startEnabled: true, stopEnabled: false}
 		var countdownForm = TestUtils.renderIntoDocument(<CountdownForm action={action}/>);
 		var el = $(ReactDom.findDOMNode(countdownForm));
 		countdownForm.refs.secondsInput.value = "6A15";
-		TestUtils.Simulate.click(el.find('a.btn')[0]);
+		TestUtils.Simulate.click(el.find('button.btn')[0]);
 		expect(spy).toNotHaveBeenCalled();
 	});
 	});

@@ -18,26 +18,26 @@ var Action = React.createClass({
 	},
 
 	renderStart : function(){
-		if(this.props.action.startEnabled){
-			return <a href="#" className="btn btn-primary" onClick={this.onStartClick}>Start</a>;
+		if(this.props.action.startEnabled || (!this.props.action.startEnabled && !this.props.action.stopEnabled)){
+			return <button href="#" className="btn btn-primary" onClick={this.onStartClick}>Start</button>;
 		}else{
-			return <a href="#" className="btn btn-primary" onClick={this.onStartClick} disabled>Start</a>;
+			return <button href="#" className="btn btn-primary" disabled onClick={this.onStartClick}>Start</button>;
 		}
 	},
 
 	renderStop : function(){
 		if(this.props.action.stopEnabled){
-			return <a href="#" className="btn btn-default" onClick={this.onStopClick}>Stop</a>;
+			return <button href="#" className="btn btn-default" onClick={this.onStopClick}>Stop</button>;
 		}else{
-			return <a href="#" className="btn btn-default" onClick={this.onStopClick} disabled>Stop</a>;
+			return <button href="#" className="btn btn-default" disabled onClick={this.onStopClick}>Stop</button>;
 		}
 	},
 
 	renderReset : function(){
 		if(this.props.action.resetEnabled){
-			return <a href="#" className="btn btn-success" onClick={this.onResetClick}>Reset</a>;
+			return <button href="#" className="btn btn-success" onClick={this.onResetClick}>Reset</button>;
 		}else{
-			return <a href="#" className="btn btn-success" onClick={this.onResetClick} disabled>Reset</a>;
+			return <button href="#" className="btn btn-success" disabled onClick={this.onResetClick}>Reset</button>;
 		}
 	},
 

@@ -28,12 +28,12 @@ var Countdown = React.createClass({
 
 	handleStartAction: function(seconds) {
 		this.setState({
-			elapsedSeconds :seconds,
+			elapsedSeconds :seconds || this.state.elapsedSeconds,
 			isStartEnabled: false,
 			isStopEnabled: true,
 			isResetEnabled: true
 		});
-		this.tick(seconds);
+		this.tick(seconds || this.state.elapsedSeconds);
 	},
 
 	handleStopAction: function() {

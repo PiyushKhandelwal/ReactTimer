@@ -2,10 +2,13 @@ var React = require("react");
 var Action = require("Action");
 
 var CountdownForm = React.createClass({
-	
 	onStartClick: function(e){
+		var {startEnabled, stopEnabled, resetEnabled} = this.props.action;
 		var seconds = this.refs.secondsInput.value;
-		if(seconds && seconds.match(/^[0-9]*$/)){
+		if(!startEnabled && !stopEnabled){
+			this.props.action.onStartAction();
+		}
+		else if((seconds && seconds.match(/^[0-9]*$/))){
 			this.refs.secondsInput.value ="";
 			this.props.action.onStartAction(parseInt(seconds,10));
 		}
