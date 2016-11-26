@@ -1,0 +1,10 @@
+.centered {
+	margin: auto;
+	float: none;
+}
+
+.vertically-aligned:before {content:" "; display:inline-block; height:100%; vertical-align:middle;}
+
+.vertically-aligned > * {
+	display:inline-block;
+}
