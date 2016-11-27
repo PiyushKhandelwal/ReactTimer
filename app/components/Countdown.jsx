@@ -18,6 +18,11 @@ var Countdown = React.createClass({
 			var seconds = this.state.elapsedSeconds - 1;
 			if(seconds === 0) {
 				clearInterval(this.interval);
+				this.setState({
+					isStartEnabled : true,
+					isStopEnabled : false,
+					isResetEnabled : false
+				})
 			}
 			this.setState({
 				elapsedSeconds : seconds

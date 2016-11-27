@@ -24,6 +24,4 @@ var Clock = React.createClass({
 		);
 	}
 });
-
-
 module.exports = Clock;
